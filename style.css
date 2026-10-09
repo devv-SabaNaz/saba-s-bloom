@@ -1,0 +1,2062 @@
+/* =====================================================
+   SABA'S BLOOM
+   PREMIUM BOTANICAL WEBSITE
+===================================================== */
+
+/* =====================================================
+   1. ROOT VARIABLES
+===================================================== */
+
+:root {
+    --ivory: #f7f3ea;
+    --warm-white: #fbf9f4;
+    --cream: #ebe3d5;
+
+    --sage-light: #dce3d5;
+    --sage: #87967f;
+    --sage-dark: #536250;
+
+    --blush-light: #f0ded8;
+    --blush: #c89e95;
+    --blush-dark: #a87970;
+
+    --sand: #dfd1bc;
+
+    --forest: #28352d;
+    --forest-soft: #35453b;
+
+    --brown: #302a25;
+    --soft-brown: #655c54;
+    --muted: #8b8177;
+
+    --white: #ffffff;
+
+    --line: rgba(48, 42, 37, 0.13);
+    --light-line: rgba(255, 255, 255, 0.17);
+
+    --shadow-soft: 0 20px 60px rgba(48, 42, 37, 0.08);
+
+    --serif: "Cormorant Garamond", Georgia, serif;
+    --sans: "DM Sans", Arial, sans-serif;
+}
+
+
+/* =====================================================
+   2. GOOGLE FONTS
+===================================================== */
+
+@import url(
+    "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&display=swap"
+);
+
+
+/* =====================================================
+   3. RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--sans);
+    background: var(--ivory);
+    color: var(--brown);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+img {
+    width: 100%;
+    display: block;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font: inherit;
+}
+
+::selection {
+    background: var(--sage);
+    color: var(--white);
+}
+
+
+/* =====================================================
+   4. GLOBAL TYPOGRAPHY
+===================================================== */
+
+h1,
+h2,
+h3 {
+    font-family: var(--serif);
+    font-weight: 500;
+    line-height: 0.95;
+}
+
+h1 span,
+h2 span {
+    color: var(--blush);
+    font-style: italic;
+}
+
+.eyebrow {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+}
+
+.section {
+    padding: 120px 7%;
+}
+
+
+/* =====================================================
+   5. NAVBAR
+===================================================== */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 88px;
+    padding: 0 7%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    z-index: 1000;
+
+    color: var(--white);
+
+    transition:
+        background 0.4s ease,
+        box-shadow 0.4s ease,
+        color 0.4s ease;
+}
+
+.navbar.scrolled {
+    background: rgba(247, 243, 234, 0.96);
+    color: var(--brown);
+
+    box-shadow:
+        0 10px 35px rgba(48, 42, 37, 0.07);
+
+    backdrop-filter: blur(14px);
+}
+
+
+/* =====================================================
+   PREMIUM BRAND LOGO
+===================================================== */
+
+.logo {
+    width: 155px;
+    height: 58px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    text-decoration: none;
+    line-height: 0;
+
+    overflow: hidden;
+
+    border-radius: 14px;
+
+    background: transparent;
+
+    border: 1px solid transparent;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.10);
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
+}
+
+
+.logo img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+    border-radius: 12px;
+
+    transition: none;
+}
+
+.logo:hover {
+    transform: none;
+    box-shadow: none;
+    border-color: transparent;
+}
+
+.logo:hover img {
+    opacity: 1;
+    transform: none;
+}
+
+.navbar.scrolled .logo {
+    border-color: transparent;
+    box-shadow: none;
+}
+
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 34px;
+}
+
+.nav-links a {
+    position: relative;
+
+    font-size: 0.78rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+
+    transition:
+        color 0.3s ease;
+}
+
+.nav-links a::after {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    bottom: -7px;
+
+    width: 0;
+    height: 1px;
+
+    background: currentColor;
+
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+
+/* =====================================================
+   NAVBAR CTA
+===================================================== */
+
+.nav-cta {
+    padding: 11px 20px;
+
+    border: 1px solid currentColor;
+
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease;
+}
+
+.nav-cta:hover {
+    background: var(--white);
+    color: var(--forest);
+}
+
+.navbar.scrolled .nav-cta:hover {
+    background: var(--forest);
+    color: var(--white);
+}
+
+
+/* =====================================================
+   6. HERO
+===================================================== */
+
+.hero {
+    position: relative;
+
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+
+    padding: 120px 7% 80px;
+
+    background-image:
+        url("assets/images/luxury_flower_bouquet.jpg");
+
+    background-size: cover;
+    background-position: center;
+
+    color: var(--white);
+
+    overflow: hidden;
+}
+
+
+/* Slow natural camera movement */
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        url("assets/images/luxury_flower_bouquet.jpg");
+
+    background-size: cover;
+    background-position: center;
+
+    animation: heroCamera 24s ease-in-out infinite alternate;
+
+    z-index: 0;
+}
+
+@keyframes heroCamera {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1.055);
+    }
+}
+
+
+/* Hero overlay */
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(25, 37, 30, 0.78) 0%,
+            rgba(25, 37, 30, 0.42) 45%,
+            rgba(25, 37, 30, 0.18) 100%
+        );
+
+    z-index: 1;
+}
+
+
+/* Hero content */
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+
+    max-width: 720px;
+
+    transition: transform 0.25s ease-out;
+}
+
+.hero-content .eyebrow {
+    margin-bottom: 22px;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.hero h1 {
+    max-width: 700px;
+
+    font-size: clamp(4rem, 8vw, 8rem);
+
+    letter-spacing: -0.04em;
+}
+
+.hero h1 span {
+    color: #e3b7ad;
+}
+
+.hero-description {
+    max-width: 510px;
+
+    margin-top: 30px;
+
+    color: rgba(255, 255, 255, 0.82);
+
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.8;
+}
+
+
+/* Hero buttons */
+
+.hero-actions {
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+    margin-top: 38px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 50px;
+
+    padding: 0 25px;
+
+    border: 1px solid transparent;
+
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+}
+
+.btn-primary {
+    background: var(--white);
+    color: var(--forest);
+}
+
+.btn-primary:hover {
+    background: var(--blush-light);
+}
+
+.btn-outline {
+    border-color: rgba(255, 255, 255, 0.55);
+    color: var(--white);
+}
+
+.btn-outline:hover {
+    background: var(--white);
+    color: var(--forest);
+}
+
+.btn-dark {
+    background: var(--forest);
+    color: var(--white);
+}
+
+.btn-dark:hover {
+    background: var(--forest-soft);
+}
+
+
+/* Hero bottom */
+
+.hero-bottom {
+    position: absolute;
+
+    left: 7%;
+    bottom: 35px;
+
+    z-index: 2;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.scroll-arrow {
+    font-size: 1rem;
+
+    animation: scrollArrow 2s ease-in-out infinite;
+}
+
+@keyframes scrollArrow {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(5px);
+    }
+}
+
+
+/* =====================================================
+   7. SECTION HEADINGS
+===================================================== */
+
+.section-heading {
+    display: grid;
+
+    grid-template-columns: 1.1fr 0.9fr;
+
+    gap: 70px;
+
+    align-items: end;
+
+    margin-bottom: 70px;
+}
+
+.section-heading .eyebrow {
+    color: var(--sage-dark);
+    margin-bottom: 18px;
+}
+
+.section-heading h2 {
+    max-width: 650px;
+
+    font-size: clamp(3.2rem, 6vw, 6rem);
+
+    letter-spacing: -0.04em;
+}
+
+.section-heading h2 span {
+    display: block;
+    color: var(--blush-dark);
+}
+
+.section-intro {
+    max-width: 420px;
+
+    color: var(--soft-brown);
+
+    font-size: 0.95rem;
+    font-weight: 300;
+    line-height: 1.9;
+}
+
+
+/* =====================================================
+   8. THE GARDEN
+===================================================== */
+
+.garden {
+    background:
+        linear-gradient(
+            180deg,
+            var(--ivory),
+            var(--warm-white)
+        );
+}
+
+
+/* Flower grid */
+
+.flower-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 45px 25px;
+}
+
+
+/* Flower card */
+
+.flower-card {
+    position: relative;
+    cursor: pointer;
+}
+
+.flower-image {
+    position: relative;
+
+    aspect-ratio: 0.78;
+
+    overflow: hidden;
+
+    background: var(--cream);
+}
+
+.flower-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.flower-card:hover .flower-image img,
+.flower-card.is-active .flower-image img {
+    transform: scale(1.055);
+}
+
+
+/* Flower information */
+
+.flower-info {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 18px;
+
+    padding: 22px 0 12px;
+
+    border-bottom: 1px solid var(--line);
+}
+
+.flower-number {
+    color: var(--muted);
+
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+}
+
+.flower-info h3 {
+    font-size: 2rem;
+}
+
+.flower-info p {
+    margin-top: 4px;
+
+    color: var(--muted);
+
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.flower-description {
+    max-width: 330px;
+
+    padding-top: 14px;
+
+    color: var(--soft-brown);
+
+    font-size: 0.82rem;
+    font-weight: 300;
+    line-height: 1.75;
+
+    opacity: 0.85;
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+
+.flower-card:hover .flower-description {
+    opacity: 1;
+    transform: translateY(-2px);
+}
+
+
+/* =====================================================
+   9. PHILOSOPHY
+===================================================== */
+
+.philosophy {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 8%;
+
+    align-items: center;
+
+    background: var(--sage-light);
+}
+
+.philosophy-image {
+    height: 620px;
+
+    overflow: hidden;
+}
+
+.philosophy-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform 1s ease;
+}
+
+.philosophy:hover .philosophy-image img {
+    transform: scale(1.025);
+}
+
+.philosophy-content {
+    max-width: 570px;
+}
+
+.philosophy-content .eyebrow {
+    color: var(--sage-dark);
+    margin-bottom: 22px;
+}
+
+.philosophy-content h2 {
+    font-size: clamp(3.5rem, 6vw, 6rem);
+
+    letter-spacing: -0.04em;
+}
+
+.philosophy-content h2 span {
+    display: block;
+    color: var(--sage-dark);
+}
+
+.philosophy-content > p:not(.eyebrow) {
+    max-width: 500px;
+
+    margin-top: 30px;
+
+    color: var(--soft-brown);
+
+    font-size: 1rem;
+    line-height: 1.9;
+}
+
+.text-link {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 10px;
+
+    margin-top: 32px;
+
+    padding-bottom: 7px;
+
+    border-bottom: 1px solid currentColor;
+
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+
+    transition:
+        gap 0.3s ease,
+        color 0.3s ease;
+}
+
+.text-link:hover {
+    gap: 15px;
+    color: var(--blush-dark);
+}
+
+
+/* =====================================================
+   10. BOUQUETS
+===================================================== */
+
+.bouquets {
+    background: var(--warm-white);
+}
+
+.bouquet-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+.bouquet-card {
+    cursor: pointer;
+}
+
+.bouquet-image {
+    position: relative;
+
+    aspect-ratio: 0.82;
+
+    overflow: hidden;
+
+    background: var(--cream);
+}
+
+.bouquet-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.bouquet-card:hover .bouquet-image img,
+.bouquet-card.is-active .bouquet-image img {
+    transform: scale(1.06);
+}
+
+.bouquet-info {
+    display: grid;
+
+    grid-template-columns: auto 1fr;
+
+    column-gap: 15px;
+
+    padding: 22px 0;
+
+    border-bottom: 1px solid var(--line);
+}
+
+.bouquet-info > span {
+    color: var(--muted);
+
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+}
+
+.bouquet-info h3 {
+    font-size: 2.15rem;
+}
+
+.bouquet-info p {
+    grid-column: 2;
+
+    margin-top: 7px;
+
+    color: var(--soft-brown);
+
+    font-size: 0.8rem;
+    line-height: 1.7;
+}
+
+
+/* =====================================================
+   11. COLLECTIONS
+===================================================== */
+
+.collections {
+    position: relative;
+
+    background: var(--forest);
+
+    color: var(--white);
+
+    overflow: hidden;
+}
+
+.collections::before {
+    content: "";
+
+    position: absolute;
+
+    width: 600px;
+    height: 600px;
+
+    right: -280px;
+    top: -260px;
+
+    border: 1px solid rgba(255, 255, 255, 0.07);
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 0 90px rgba(255, 255, 255, 0.015),
+        0 0 0 180px rgba(255, 255, 255, 0.01);
+
+    pointer-events: none;
+}
+
+.collections-inner {
+    position: relative;
+
+    z-index: 1;
+
+    display: grid;
+
+    grid-template-columns: 0.8fr 1.2fr;
+
+    gap: 100px;
+
+    align-items: start;
+}
+
+.collections-heading .eyebrow {
+    color: #b7c6b1;
+    margin-bottom: 22px;
+}
+
+.collections-heading h2 {
+    max-width: 500px;
+
+    font-size: clamp(3.5rem, 6vw, 6rem);
+
+    letter-spacing: -0.04em;
+}
+
+.collections-heading p:last-child {
+    max-width: 390px;
+
+    margin-top: 28px;
+
+    color: rgba(255, 255, 255, 0.62);
+
+    font-size: 0.9rem;
+    line-height: 1.9;
+}
+
+
+/* Collection list */
+
+.collection-list {
+    border-top: 1px solid var(--light-line);
+}
+
+.collection-item {
+    display: grid;
+
+    grid-template-columns: 50px 1fr auto;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 26px 0;
+
+    border-bottom: 1px solid var(--light-line);
+
+    transition:
+        padding-left 0.35s ease,
+        color 0.35s ease;
+}
+
+.collection-item:hover {
+    padding-left: 12px;
+    color: #e4bdb5;
+}
+
+.collection-item span:first-child {
+    color: rgba(255, 255, 255, 0.38);
+
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+}
+
+.collection-item strong {
+    font-family: var(--serif);
+
+    font-size: clamp(1.8rem, 3vw, 2.7rem);
+
+    font-weight: 400;
+}
+
+.collection-item span:last-child {
+    font-size: 1.1rem;
+}
+
+
+/* =====================================================
+   12. BLOOM AI
+===================================================== */
+
+.bloom-ai {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 8%;
+
+    align-items: center;
+
+    background: var(--ivory);
+}
+
+.bloom-ai-image {
+    height: 650px;
+
+    overflow: hidden;
+}
+
+.bloom-ai-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform 1s ease;
+}
+
+.bloom-ai:hover .bloom-ai-image img {
+    transform: scale(1.025);
+}
+
+.bloom-ai-content {
+    max-width: 560px;
+}
+
+.bloom-ai-content .eyebrow {
+    color: var(--sage-dark);
+    margin-bottom: 20px;
+}
+
+.bloom-ai-content h2 {
+    font-size: clamp(3.5rem, 6vw, 6rem);
+
+    letter-spacing: -0.04em;
+}
+
+.bloom-ai-content h2 span {
+    display: block;
+    color: var(--blush-dark);
+}
+
+.bloom-ai-content > p:not(.eyebrow) {
+    max-width: 500px;
+
+    margin-top: 28px;
+
+    color: var(--soft-brown);
+
+    font-size: 0.95rem;
+    line-height: 1.9;
+}
+
+
+/* AI preview */
+
+.ai-preview {
+    margin: 38px 0;
+
+    padding: 25px;
+
+    border: 1px solid var(--line);
+
+    background: rgba(255, 255, 255, 0.55);
+}
+
+.ai-preview-label {
+    color: var(--muted);
+
+    font-size: 0.62rem;
+    letter-spacing: 0.15em;
+}
+
+.ai-preview-text {
+    margin-top: 15px;
+
+    font-family: var(--serif);
+
+    font-size: 1.65rem;
+
+    font-style: italic;
+}
+
+.ai-preview-result {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    margin-top: 25px;
+
+    padding-top: 18px;
+
+    border-top: 1px solid var(--line);
+}
+
+.ai-preview-result span {
+    color: var(--muted);
+
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.ai-preview-result strong {
+    font-family: var(--serif);
+
+    font-size: 1.6rem;
+
+    font-weight: 500;
+}
+
+
+/* =====================================================
+   13. CREATE YOUR BLOOM
+===================================================== */
+
+.create {
+    display: grid;
+
+    grid-template-columns: 1fr 0.85fr;
+
+    gap: 8%;
+
+    align-items: center;
+
+    background: var(--blush-light);
+}
+
+.create-content {
+    max-width: 650px;
+}
+
+.create-content .eyebrow {
+    color: var(--blush-dark);
+    margin-bottom: 20px;
+}
+
+.create-content h2 {
+    font-size: clamp(3.5rem, 6vw, 6rem);
+
+    letter-spacing: -0.04em;
+}
+
+.create-content h2 span {
+    display: block;
+    color: var(--forest);
+}
+
+.create-content > p:not(.eyebrow) {
+    max-width: 480px;
+
+    margin-top: 25px;
+
+    color: var(--soft-brown);
+
+    line-height: 1.9;
+}
+
+
+/* Feeling buttons */
+
+.feeling-options {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-top: 35px;
+}
+
+.feeling-btn {
+    padding: 11px 17px;
+
+    border: 1px solid rgba(48, 42, 37, 0.2);
+
+    background: transparent;
+
+    color: var(--brown);
+
+    cursor: pointer;
+
+    font-size: 0.7rem;
+    letter-spacing: 0.06em;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.feeling-btn:hover {
+    transform: translateY(-2px);
+
+    border-color: var(--forest);
+
+    background: var(--forest);
+
+    color: var(--white);
+}
+
+.feeling-btn.active {
+    border-color: var(--forest);
+
+    background: var(--forest);
+
+    color: var(--white);
+}
+
+
+/* Bloom result */
+
+.bloom-result {
+    min-height: 155px;
+
+    margin-top: 35px;
+
+    padding: 25px;
+
+    border-left: 2px solid var(--forest);
+
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.result-label {
+    color: var(--muted);
+
+    font-size: 0.62rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+.bloom-result h3 {
+    margin-top: 8px;
+
+    font-size: 2.3rem;
+}
+
+.bloom-result p:last-child {
+    margin-top: 7px;
+
+    color: var(--soft-brown);
+
+    font-size: 0.82rem;
+}
+
+
+/* Create image */
+
+.create-image {
+    height: 650px;
+
+    overflow: hidden;
+}
+
+.create-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform 1s ease;
+}
+
+.create:hover .create-image img {
+    transform: scale(1.025);
+}
+
+
+/* =====================================================
+   14. ABOUT
+===================================================== */
+
+.about {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 8%;
+
+    align-items: center;
+
+    background: var(--warm-white);
+}
+
+.about-content {
+    max-width: 600px;
+}
+
+.about-content .eyebrow {
+    color: var(--sage-dark);
+    margin-bottom: 20px;
+}
+
+.about-content h2 {
+    font-size: clamp(3.5rem, 6vw, 6rem);
+
+    letter-spacing: -0.04em;
+}
+
+.about-content h2 span {
+    color: var(--sage-dark);
+}
+
+.about-content > p:not(.eyebrow) {
+    max-width: 510px;
+
+    margin-top: 28px;
+
+    color: var(--soft-brown);
+
+    font-size: 0.95rem;
+    line-height: 1.9;
+}
+
+.about-image {
+    height: 620px;
+
+    overflow: hidden;
+}
+
+.about-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform 1s ease;
+}
+
+.about:hover .about-image img {
+    transform: scale(1.025);
+}
+
+
+/* =====================================================
+   15. FINAL CTA
+===================================================== */
+
+.final-cta {
+    min-height: 600px;
+
+    padding: 120px 7%;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--sage-light),
+            var(--ivory)
+        );
+}
+
+.final-cta .eyebrow {
+    color: var(--sage-dark);
+    margin-bottom: 25px;
+}
+
+.final-cta h2 {
+    max-width: 900px;
+
+    font-size: clamp(4rem, 8vw, 8rem);
+
+    letter-spacing: -0.05em;
+}
+
+.final-cta h2 span {
+    display: block;
+    color: var(--blush-dark);
+}
+
+.final-cta .btn {
+    margin-top: 40px;
+}
+
+
+/* =====================================================
+   16. FOOTER
+===================================================== */
+
+.footer {
+    position: relative;
+
+    padding: 105px 7% 32px;
+
+    background: var(--forest);
+
+    color: var(--white);
+
+    overflow: hidden;
+}
+
+
+/* Decorative botanical-style circle */
+
+.footer::before {
+    content: "";
+
+    position: absolute;
+
+    width: 520px;
+    height: 520px;
+
+    right: -260px;
+    top: -280px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(255, 255, 255, 0.07);
+
+    box-shadow:
+        0 0 0 80px rgba(255, 255, 255, 0.015),
+        0 0 0 160px rgba(255, 255, 255, 0.01);
+
+    pointer-events: none;
+}
+
+
+/* Footer top */
+
+.footer-top {
+    position: relative;
+
+    z-index: 1;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 80px;
+
+    align-items: end;
+
+    padding-bottom: 75px;
+
+    border-bottom: 1px solid var(--light-line);
+}
+
+
+
+/* Footer premium logo */
+.footer-brand .logo {
+    width: 165px;
+    height: 62px;
+    border-radius: 14px;
+
+    background: transparent;
+    border: 1px solid transparent;
+    box-shadow: none;
+    transition: none;
+}
+
+.footer-brand .logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 12px;
+    transition: none;
+}
+
+.footer-brand .logo:hover {
+    transform: none;
+    border-color: transparent;
+    box-shadow: none;
+}
+
+.footer-brand .logo:hover img {
+    opacity: 1;
+    transform: none;
+}
+
+.footer-brand > p {
+    max-width: 280px;
+
+    margin-top: 22px;
+
+    color: rgba(255, 255, 255, 0.62);
+
+    font-family: var(--serif);
+
+    font-size: 1.35rem;
+
+    font-style: italic;
+}
+
+.footer-eyebrow {
+    color: rgba(255, 255, 255, 0.48);
+
+    font-size: 0.65rem;
+
+    letter-spacing: 0.2em;
+
+    text-transform: uppercase;
+}
+
+.footer-message {
+    text-align: right;
+}
+
+.footer-message h2 {
+    margin-top: 12px;
+
+    font-size: clamp(3rem, 5vw, 5rem);
+
+    letter-spacing: -0.04em;
+}
+
+.footer-message h2 span {
+    color: #dfb3a9;
+    font-style: italic;
+}
+
+
+/* Footer links */
+
+.footer-links {
+    position: relative;
+
+    z-index: 1;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 30px;
+
+    padding: 28px 0;
+
+    border-bottom: 1px solid var(--light-line);
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.65);
+
+    font-size: 0.7rem;
+
+    letter-spacing: 0.1em;
+
+    text-transform: uppercase;
+
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--white);
+}
+
+
+/* Footer bottom */
+
+.footer-bottom {
+    position: relative;
+
+    z-index: 1;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding-top: 25px;
+
+    color: rgba(255, 255, 255, 0.38);
+
+    font-size: 0.65rem;
+
+    letter-spacing: 0.06em;
+}
+
+
+/* =====================================================
+   17. RESPONSIVE — TABLET
+===================================================== */
+
+@media (max-width: 1000px) {
+
+    .navbar {
+        padding: 0 5%;
+    }
+
+    .nav-links {
+        gap: 20px;
+    }
+
+    .nav-cta {
+        display: none;
+    }
+
+    .section {
+        padding: 95px 5%;
+    }
+
+    .section-heading {
+        grid-template-columns: 1fr;
+
+        gap: 25px;
+
+        margin-bottom: 50px;
+    }
+
+    .flower-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .bouquet-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .philosophy,
+    .bloom-ai,
+    .create,
+    .about {
+        grid-template-columns: 1fr;
+
+        gap: 55px;
+    }
+
+    .philosophy-image,
+    .bloom-ai-image,
+    .create-image,
+    .about-image {
+        height: 550px;
+    }
+
+    .collections-inner {
+        grid-template-columns: 1fr;
+
+        gap: 60px;
+    }
+
+    .footer-top {
+        grid-template-columns: 1fr;
+
+        gap: 55px;
+    }
+
+    .footer-message {
+        text-align: left;
+    }
+}
+
+
+/* =====================================================
+   18. RESPONSIVE — MOBILE
+===================================================== */
+
+@media (max-width: 768px) {
+
+    .navbar {
+        height: 75px;
+
+        padding: 0 5%;
+    }
+
+    /* Mobile wordmark logo */
+    .logo {
+        width: 130px;
+        height: 50px;
+
+        border-radius: 12px;
+    }
+
+    .logo img {
+        width: 100%;
+        height: 100%;
+
+        border-radius: 10px;
+
+        object-fit: contain;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .hero {
+        padding: 110px 6% 70px;
+
+        background-position: 60% center;
+    }
+
+    .hero::before {
+        background-position: 60% center;
+    }
+
+    .hero h1 {
+        font-size: clamp(3.5rem, 15vw, 5.5rem);
+    }
+
+    .hero-description {
+        max-width: 390px;
+
+        font-size: 0.9rem;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .hero-actions .btn {
+        width: 100%;
+    }
+
+    .hero-bottom {
+        left: 6%;
+    }
+
+    .section {
+        padding: 80px 6%;
+    }
+
+    .section-heading h2,
+    .philosophy-content h2,
+    .bloom-ai-content h2,
+    .create-content h2,
+    .about-content h2 {
+
+        font-size: clamp(3.2rem, 14vw, 5rem);
+    }
+
+    .flower-grid,
+    .bouquet-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .flower-image {
+        aspect-ratio: 0.9;
+    }
+
+    .bouquet-image {
+        aspect-ratio: 0.9;
+    }
+
+    .philosophy-image,
+    .bloom-ai-image,
+    .create-image,
+    .about-image {
+        height: 450px;
+    }
+
+    .collections {
+        padding-left: 6%;
+        padding-right: 6%;
+    }
+
+    .collection-item {
+        grid-template-columns: 35px 1fr auto;
+    }
+
+    .collection-item strong {
+        font-size: 1.8rem;
+    }
+
+    .final-cta {
+        min-height: 500px;
+
+        padding: 90px 6%;
+    }
+
+    .final-cta h2 {
+        font-size: clamp(3.5rem, 15vw, 5.5rem);
+    }
+
+    .footer {
+        padding: 80px 6% 28px;
+    }
+
+    .footer-top {
+        padding-bottom: 55px;
+    }
+
+    /* Mobile footer wordmark */
+    .footer-brand .logo {
+        width: 145px;
+        height: 55px;
+
+        border-radius: 12px;
+    }
+
+    .footer-brand .logo img {
+        border-radius: 10px;
+    }
+
+    .footer-links {
+        flex-wrap: wrap;
+
+        gap: 18px 25px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 8px;
+    }
+}
+
+
+/* =====================================================
+   19. SMALL MOBILE
+===================================================== */
+
+@media (max-width: 480px) {
+
+    .logo {
+        width: 120px;
+        height: 46px;
+
+        border-radius: 11px;
+    }
+
+    .logo img {
+        border-radius: 9px;
+    }
+
+    .hero {
+        min-height: 92vh;
+    }
+
+    .hero h1 {
+        font-size: 3.5rem;
+    }
+
+    .hero-description {
+        font-size: 0.85rem;
+    }
+
+    .section-heading h2,
+    .philosophy-content h2,
+    .bloom-ai-content h2,
+    .create-content h2,
+    .about-content h2 {
+
+        font-size: 3.3rem;
+    }
+
+    .flower-info h3,
+    .bouquet-info h3 {
+        font-size: 1.8rem;
+    }
+
+    .philosophy-image,
+    .bloom-ai-image,
+    .create-image,
+    .about-image {
+        height: 380px;
+    }
+
+    .ai-preview {
+        padding: 20px;
+    }
+
+    .ai-preview-text {
+        font-size: 1.35rem;
+    }
+
+    .feeling-options {
+        gap: 8px;
+    }
+
+    .feeling-btn {
+        padding: 9px 13px;
+
+        font-size: 0.65rem;
+    }
+
+    .bloom-result {
+        padding: 20px;
+    }
+
+    /* Small mobile footer wordmark */
+    .footer-brand .logo {
+        width: 135px;
+        height: 52px;
+
+        border-radius: 11px;
+    }
+
+    .footer-message h2 {
+        font-size: 3rem;
+    }
+}
+
+
+/* =====================================================
+   20. REDUCED MOTION
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        transition-duration: 0.01ms !important;
+    }
+}
+
+
+/* =========================================
+   FIND YOUR BLOOM — QUIZ DESIGN
+========================================= */
+
+.bloom-quiz {
+    padding: 90px 20px;
+    text-align: center;
+    background: #fbf7f4;
+    scroll-margin-top: 100px;
+}
+
+.quiz-container {
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.quiz-quiz-label,
+.bloom-quiz .section-label {
+    color: #956d79;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.bloom-quiz h2 {
+    margin: 12px 0;
+    color: #49363b;
+}
+
+.quiz-intro {
+    max-width: 540px;
+    margin: 16px auto 32px;
+    color: #786d6c;
+    line-height: 1.8;
+}
+
+.quiz-panel {
+    margin: 30px auto 0;
+    padding: 35px;
+    border: 1px solid #eadedb;
+    border-radius: 22px;
+    background: #fffdfb;
+    box-shadow: 0 12px 35px rgba(80, 50, 40, 0.06);
+}
+
+.quiz-panel[hidden] {
+    display: none !important;
+}
+
+.quiz-flower {
+    margin-bottom: 14px;
+    font-size: 54px;
+}
+
+.quiz-panel h3 {
+    margin: 12px 0;
+    color: #49363b;
+    line-height: 1.5;
+}
+
+.quiz-panel p {
+    line-height: 1.8;
+}
+
+.quiz-btn {
+    display: inline-block;
+    margin-top: 18px;
+    padding: 14px 26px;
+    border: none;
+    border-radius: 30px;
+    background: #79515e;
+    color: #fff;
+    font: inherit;
+    cursor: pointer;
+    transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.quiz-btn:hover {
+    background: #5f3e49;
+    transform: translateY(-2px);
+}
+
+.quiz-btn:focus-visible,
+.quiz-option:focus-visible {
+    outline: 3px solid #bd929f;
+    outline-offset: 3px;
+}
+
+.quiz-progress {
+    margin-bottom: 18px;
+    color: #956d79;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+.quiz-options {
+    display: grid;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.quiz-option {
+    width: 100%;
+    padding: 16px 18px;
+    border: 1px solid #e7d8d9;
+    border-radius: 13px;
+    background: #fff;
+    color: #49363b;
+    text-align: left;
+    font: inherit;
+    cursor: pointer;
+    transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.quiz-option:hover {
+    border-color: #a87988;
+    background: #f8eef1;
+}
+
+#quiz-flower-image {
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    height: 300px;
+    margin: 22px auto;
+    border-radius: 18px;
+    object-fit: cover;
+    transition: opacity 0.3s ease;
+}
+
+#quiz-flower-name {
+    color: #79515e;
+}
+
+#quiz-flower-message {
+    max-width: 480px;
+    margin: 12px auto;
+    color: #786d6c;
+}
+
+@media (max-width: 600px) {
+    .bloom-quiz {
+        padding: 60px 16px;
+    }
+
+    .quiz-panel {
+        padding: 25px 18px;
+    }
+
+    #quiz-flower-image {
+        height: 240px;
+    }
+}
